@@ -1,16 +1,23 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
-  const data = reactive({symbol: ""})
+  let data = reactive([])
+
   function addText(value){
-    data.symbol = value
+    data.push(value[0].toUpperCase() + value.slice(1));
+    this.value = ""
   }
 
 </script>
 
 <template>
   <input v-model="myInput" @keypress.enter="addText(myInput)">
-  <p v-if="data.symbol">{{data.symbol}}</p>
+  <p v-if="data.length"
+  v-for="(elem, index) in data"
+  :key="elem">
+    {{elem}}
+    <button @click="data.splice(index, 1)">Удалить</button>  
+  </p>
   <p v-else>Текста нет</p>
 </template>
 
