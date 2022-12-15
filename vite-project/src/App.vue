@@ -1,12 +1,14 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import Todo from './components/Todo-list.vue'
 </script>
 
 <template>
-  <HelloWorld />
+  <!-- <HelloWorld /> -->
+  <Todo />
 </template>
 
 <style lang="sass">
 body
-  background-color: #eaaa00
+  background-color: beige
 </style>
